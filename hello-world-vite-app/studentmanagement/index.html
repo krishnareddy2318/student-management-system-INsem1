@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Management System</title>
+</head>
+<body>
+    <h1>Student Management System</h1>
+
+    <h2>Student Results</h2>
+
+    <label>Student Name:</label>
+    <input type="text" id="name">
+    <br><br>
+
+    <label>Marks:</label>
+    <input type="number" id="marks" min="0" max="100">
+    <br><br>
+
+    <button onclick="checkResult()">Check Result</button>
+
+    <p id="result"></p>
+
+    <script>
+        function checkResult() {
+            let name = document.getElementById("name").value;
+            let marks = document.getElementById("marks").value;
+
+            if (name === "" || marks === "") {
+                document.getElementById("result").innerHTML =
+                    "Please enter all details.";
+            } else if (Number(marks) < 0 || Number(marks) > 100) {
+                document.getElementById("result").innerHTML =
+                    "Marks must be between 0 and 100.";
+            } else if (Number(marks) >= 40) {
+                document.getElementById("result").innerHTML =
+                    name + " has PASSED!";
+            } else {
+                document.getElementById("result").innerHTML =
+                    name + " has FAILED!";
+            }
+        }
+    </script>
+</body>
+</html>
